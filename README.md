@@ -1,5 +1,7 @@
 # YourTurn Token
 
+[![Master Status](https://github.com/kinggs/your-turn-contract/workflows/master/badge.svg)](https://github.com/kinggs/your-turn-contract/actions)
+
 A nonsensical token meant to test and play with ERC20.
 
 Initially built from the basic Waffle 'Getting Started' guide (<https://ethereum-waffle.readthedocs.io/en/latest/getting-started.html>) with some additional dotfiles, linting & prettier.
