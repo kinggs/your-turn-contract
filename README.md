@@ -13,8 +13,12 @@ Initially built from the basic Waffle 'Getting Started' guide (<https://ethereum
 yarn build
 # flatten
 yarn flatten
-# tesst
+# test (using waffle)
 yarn test
+# migrate (using truffle - default network: development - needs a running Ganache on 127.0.01.:7545)
+yarn migrate
+# console (using truffle - default network: development - needs a running Ganache on 127.0.01.:7545)
+yarn console
 ```
 
 ## Contributors
