@@ -1,7 +1,7 @@
 import { expect, use } from 'chai';
 import { Contract } from 'ethers';
 import { deployContract, MockProvider, solidity } from 'ethereum-waffle';
-import YourTurnToken from '../.build/YourTurnToken.json';
+import YourTurnToken from '../build/contracts/YourTurnToken.json';
 
 use(solidity);
 
