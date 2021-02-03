@@ -13,6 +13,12 @@ describe('YourTurnToken', () => {
     token = await deployContract(wallet, YourTurnToken, [1000]);
   });
 
+  it('Check Token Setup', async () => {
+    expect(await token.name()).to.equal('YourTurnToken');
+    expect(await token.decimals()).to.equal(0);
+    expect(await token.symbol()).to.equal('YTT');
+  });
+
   it('Assigns initial balance', async () => {
     expect(await token.balanceOf(wallet.address)).to.equal(1000);
   });
@@ -50,5 +56,30 @@ describe('YourTurnToken', () => {
       [wallet, walletTo],
       [-200, 200],
     );
+  });
+});
+
+describe('Inter Account Flows', () => {
+  const [owner, kenny, jen] = new MockProvider().getWallets();
+  let token: Contract;
+
+  beforeEach(async () => {
+    token = await deployContract(owner, YourTurnToken, [1000]);
+  });
+
+  it('Change balance of receiver and sander wallets', async () => {
+    // At Start
+    expect(await token.balanceOf(owner.address)).to.equal(1000);
+    // Kenny buys 7 tokens
+    await token.transfer(kenny.address, 7);
+    expect(await token.balanceOf(owner.address)).to.equal(993);
+    expect(await token.balanceOf(kenny.address)).to.equal(7);
+    // Kenny sends 3 tokens to Jen
+    const kennyToken = token.connect(kenny);
+    await kennyToken.transfer(jen.address, 3);
+    expect(await token.balanceOf(owner.address)).to.equal(993);
+    expect(await token.balanceOf(kenny.address)).to.equal(4);
+    expect(await token.balanceOf(jen.address)).to.equal(3);
+    expect(await token.totalSupply()).to.equal(1000);
   });
 });

@@ -17,6 +17,6 @@
     "skipLibCheck": true,
     "resolveJsonModule": true
   },
-  "include": ["./src"],
-  "exclude": ["./src/generated", "**/node_modules/**"]
+  "include": ["./contracts/**.ts", "./test/**.ts"],
+  "exclude": ["./build", "**/node_modules/**"]
 }

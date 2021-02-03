@@ -21,6 +21,27 @@ yarn migrate
 yarn console
 ```
 
+## With Truffle (either on truffle development environment, or against ganache)
+
+Simple example of migrating contract, and transferring 10 tokens to an account
+
+```sh
+# For Development Environment
+yarn truffle
+# For Ganache
+yarn ganache
+# Deploy contract
+migrate
+# Test
+let token = await YourTurnToken.deployed()
+token.name()
+token.decimals()
+let accounts = await web3.eth.getAccounts()
+let tx = token.transfer(accounts[1], 10)
+(await token.balanceOf(accounts[0])).toNumber()
+(await token.balanceOf(accounts[1])).toNumber()
+```
+
 ## Contributors
 
 | [![Kenny Inggs][kinggs_avatar]][kinggs_homepage] | [![Jen Wynne][jenwynne_avatar]][jenwynne_homepage] |

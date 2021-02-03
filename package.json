@@ -4,11 +4,8 @@
     "build": "waffle",
     "flatten": "waffle flatten",
     "test": "export NODE_ENV=test && mocha",
-    "console": "truffle console",
-    "develop": "truffle develop",
-    "migrate": "yarn migrate:dev",
-    "migrate:dev": "truffle migrate --network development",
-    "migrate:test": "truffle migrate --network test"
+    "ganache": "truffle console",
+    "truffle": "truffle develop"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
