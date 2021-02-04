@@ -28,8 +28,9 @@ Simple example of migrating contract, and transferring 10 tokens to an account
 ```sh
 # For Development Environment
 yarn truffle
-# For Ganache
+# For Ganache, get ganache up in a seperate terminal (or desktop), then run yarn truffle:gc or truffle:gd, e.g.
 yarn ganache
+yarn truffle:gc
 # Deploy contract
 migrate
 # Test
