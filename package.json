@@ -3,7 +3,7 @@
   "scripts": {
     "build": "waffle",
     "flatten": "waffle flatten",
-    "test": "export NODE_ENV=test && mocha",
+    "test": "yarn build && export NODE_ENV=test && mocha",
     "ganache": "yarn ganache-cli",
     "truffle:gc": "truffle console --network ganacheCli",
     "truffle:gd": "truffle console --network ganacheDesktop",
