@@ -29,7 +29,7 @@ yarn migrate
 yarn console
 ```
 
-### YourTurnToken ERC20 example on Truffle Develop)
+### YourTurnToken ERC20 example on Truffle Develop
 
 Simple example of migrating contract, and transferring 10 tokens to an account
 
@@ -48,9 +48,22 @@ let tx = token.transfer(accounts[1], 10)
 (await token.balanceOf(accounts[1])).toNumber()
 ```
 
-### YourTurnToken ERC721 example on Truffle Ganache:CLI)
+### YourTurnToken ERC721 example on Truffle Ganache:CLI
 
-Simple example of migrating contract, and transferring 10 tokens to an account
+Simple example of migrating contract, and transferring 10 tokens to an account. For GanacheCLI, we use a standard mnemonic to make development easier, resulting in a simple set of local development test accounts for our characters.
+
+```sh
+# Addresses
+0: Owner: 0x56a9FD7fA4c8a8553575e142df045f1B336E15cf
+1: Alice: 0xf039EEC76f546185c067a627C3c92759538e86E7
+2: Bob: 0xF385c8f337239983C0E286F78C3e1b11C9C940cf
+3: Carlos: 0xF23A18Cd3426855862ecF374Ec8AEb77Af3D17b9
+# Keys
+0: Owner: 0x9ad262fcd1f9778d53640ca0a2d46af127d805986a5bb553f007620e11f8e027
+1: Alice: 0x9d35dee05976acd10bdbd74f388aedb6fb9d28a0abd893f83aac6198be9a6a85
+2: Bob: 0xac82a03d08cb787f627959798d5df321f61eea59c42e0ad03bd1510d5f7fe2da
+3: Carlos: 0xa4b045d669fd61b98e985002ecdfd690080dd91b119fc6127aaf744e64a639ec
+```
 
 ```sh
 # In seperate terminal, run ganache
@@ -62,10 +75,10 @@ migrate
 let token = await YourTurnNft.deployed()
 token.name()
 let accounts = await web3.eth.getAccounts()
-token.mint(accounts[1], 1, "Your turn to buy beer")
-await token.ownerOf(1)
-await token.transfer(accounts[1], accounts[2], 1)
-await token.ownerOf(1)
+token.mint(accounts[1], 11111, "Your turn to buy beer")
+await token.ownerOf(11111)
+await token.transfer(accounts[1], accounts[2], 11111)
+await token.ownerOf(11111)
 ```
 
 ## Contributors

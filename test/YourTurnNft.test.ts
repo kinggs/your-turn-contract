@@ -45,7 +45,12 @@ describe('YourTurnNft', () => {
     };
     await token.mint(kenny.address, thirdToken.id, thirdToken.purpose);
     const kennyToken = token.connect(kenny);
-    await kennyToken.transfer(kenny.address, simon.address, 3);
+    expect(await kennyToken.balanceOf(kenny.address)).to.equal(1);
+    await token.tokenURI(thirdToken.id);
+    // TODO: Can we fix this weird syntax below? We stole it from https://ethereum.stackexchange.com/questions/86986/safetransferfrom-is-undefined-in-buidler-test - but don't like it at all
+    await kennyToken['safeTransferFrom(address,address,uint256)'](kenny.address, simon.address, thirdToken.id);
+    expect(await token.ownerOf(thirdToken.id)).to.equal(simon.address);
+    expect(await kennyToken.balanceOf(kenny.address)).to.equal(0);
     expect(await token.totalSupply()).to.equal(1);
   });
 });
