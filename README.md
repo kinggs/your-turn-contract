@@ -34,9 +34,8 @@ yarn console
 Simple example of migrating contract, and transferring 10 tokens to an account
 
 ```sh
-# For Development Environment
+# Get Truffle Development running
 yarn truffle
-# For Ganache, get ganache up in a seperate terminal (or desktop), then run yarn truffle:gc or truffle:gd, e.g.
 migrate
 # Test
 let token = await YourTurnToken.deployed()
@@ -50,7 +49,7 @@ let tx = token.transfer(accounts[1], 10)
 
 ### YourTurnToken ERC721 example on Truffle Ganache:CLI
 
-Simple example of migrating contract, and transferring 10 tokens to an account. For GanacheCLI, we use a standard mnemonic to make development easier, resulting in a simple set of local development test accounts for our characters.
+Simple example of migrating contract, and transferring 10 tokens to an account. We use GanacheCLI for this example (compared to Truffle Develop for the ERC20 above), and use a standard mnemonic to make development easier, resulting in a simple set of local development test accounts for our fictional characters.
 
 ```sh
 # Addresses
