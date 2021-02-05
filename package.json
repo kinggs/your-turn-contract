@@ -4,7 +4,9 @@
     "build": "waffle",
     "flatten": "waffle flatten",
     "test": "export NODE_ENV=test && mocha",
-    "ganache": "truffle console",
+    "ganache": "yarn ganache-cli -m \"waffle waffle waffle waffle waffle waffle waffle waffle waffle waffle waffle\"",
+    "truffle:gc": "truffle console --network ganacheCli",
+    "truffle:gd": "truffle console --network ganacheDesktop",
     "truffle": "truffle develop"
   },
   "devDependencies": {
@@ -12,7 +14,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/register": "^7.12.10",
-    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/test-helpers": "^0.5.10",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
     "@typescript-eslint/eslint-plugin": "^4.14.1",
@@ -21,14 +23,17 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
     "ethereum-waffle": "^3.2.2",
+    "ganache-cli": "^6.12.2",
     "mocha": "^8.2.1",
     "prettier": "^2.2.1",
     "prettier-plugin-solidity": "^1.0.0-beta.3",
+    "solc": "0.7.6",
     "truffle": "^5.1.64",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "3.4.0-solc-0.7",
     "@typescript-eslint/parser": "^4.14.1"
   }
 }

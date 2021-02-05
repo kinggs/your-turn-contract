@@ -3,4 +3,4 @@
 **/.flatten
 **/cache
 **/node_modules
-**/.log
+**/**error.log
